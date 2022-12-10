@@ -3,6 +3,12 @@
 :root {
     --header-color: #cccccc;
     --left-width: 300px;
+    --work-1-img: url(../images/work-1.png);
+    --work-2-img: url(../images/work-2.png);
+    --work-3-img: url(../images/map.png);
+    --work-4-img: url();
+    --work-5-img: url();
+    --work-6-img: url();
 }
 
 * {
@@ -66,7 +72,7 @@ section {
     justify-content: stretch;
     align-items: flex-start;
     margin: 0 40px;
-    width: 800px;
+    max-width: 1000px;
 }
 
 section h2 {
@@ -111,6 +117,7 @@ section#work a {
     width: 100%;
     height: 100%;
     border: 3px solid var(--header-color);
+    text-decoration: none;
 }
 
 ul#work-items li {
@@ -121,7 +128,7 @@ ul#work-items li {
 
 ul#work-items li:first-of-type {
     width: 100%;
-    height: 250px;
+    height: 200px;
 }
 
 ul#work-items h3 {
@@ -139,6 +146,33 @@ ul#work-items p strong {
     display: block;
     font-size: 120%;
 }
+
+#work-items a#work-1 {
+    background-image: var(--work-1-img);
+    background-size: 100%;
+}
+
+#work-items a#work-2 {
+    background-image: var(--work-2-img);
+    background-size: 200%;
+}
+
+#work-items a#work-3 {
+    background-image: var(--work-3-img);
+    background-size: 200%;
+}
+
+#work-items a#work-4 {
+    background-image: var(--work-4-img);
+    background-size: 200%;
+}
+
+#work-items a#work-5 {
+    background-image: var(--work-5-img);
+    background-size: 200%;
+}
+
+
 
 
 /* MEDIA QUERIES */
