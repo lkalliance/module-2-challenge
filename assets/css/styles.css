@@ -4,7 +4,7 @@
     --header-highlight-color: #0a5829;
     --header-text-color: white;
     --work-items-highlight-color: rgb(146, 11, 11);
-    --left-column-highlight-color: darkgreen;
+    --left-column-highlight-color: rgb(120, 135, 9);
     --work-items-inner-border: 1px;
     --work-items-inner-relative: -1px;
     --work-items-inner-color: white;
@@ -37,6 +37,29 @@ h2 {
 }
 
 
+/* ANIMATION KEYFRAMES */
+
+@keyframes header-name {
+    from { opacity: 0; top: -100px; }
+    to { opacity: 1; top: 0; }
+}
+
+@keyframes header-image {
+    from { opacity: 0; left: -500px; }
+    to { opacity: 1; left: 25px; }
+}
+
+@keyframes sections-fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes section-from-right {
+    from { left: 4000px; }
+    to { left: 0; }
+}
+
+
 /* HEADER STYLES */
 
 header {
@@ -55,20 +78,27 @@ header h1 {
     padding-right: 20px;
     padding-left: 150px;
     position: relative;
+    animation-name: header-name;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 header h1 img {
     height: 100px;
     width: 100px;
     position: absolute;
-    left: 25px;
     top: -15px;
+    left: -500px;
     border: 1px solid black;
+    animation-delay: 1s;
+    animation-name: header-image;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
 }
 
 header a,
 footer a {
-    color: var(--header-highlight-color);
+    color: var(--left-column-highlight-color);
     text-decoration: none;
 }
 
@@ -79,6 +109,8 @@ header a {
 nav {
     position: relative;
     top: 12px;
+    animation: section-from-right;
+    animation-duration: 2s;
 }
 
 nav menu {
@@ -93,7 +125,7 @@ footer li {
     font-weight: bold;
     font-size: 90%;
     padding: 5px 0;
-    border-bottom: 4px solid var(--header-highlight-color);
+    border-bottom: 4px solid var(--left-column-highlight-color);
     margin-right: 20px;
 }
 
@@ -120,6 +152,11 @@ footer h2 {
     color: white;
     position: relative;
     top: 10px;
+    opacity: 0;
+    animation: sections-fadein;
+    animation-duration: 2s;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
 }
 
 footer h2 {
@@ -130,27 +167,36 @@ footer h2 {
 section p,
 section ul,
 footer ul {
+    position: relative;
     border-left: 4px solid var(--left-column-highlight-color);
     padding-left: 18px;
     margin: 0;
     padding-bottom: 60px;
+ }
+
+section > ul,
+section > p,
+footer > ul {
+    left: 4000px;
+    animation: section-from-right;
+    animation-delay: 1s;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
 }
 
 footer ul {
     padding-top: 22px;
     padding-bottom: 50px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 section ul,
 footer ul {
+    position: relative;
     list-style-type: none;
     display: flex;
-}
-
-footer ul {
-    justify-content: space-between;
-    width: 100%;
-}
+ }
 
 footer a {
     text-decoration: none;
