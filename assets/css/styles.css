@@ -3,8 +3,8 @@
 :root {
     --header-highlight-color: #0a5829;
     --header-text-color: white;
-    --work-items-highlight-color: rgb(146, 11, 11);
-    --left-column-highlight-color: rgb(120, 135, 9);
+    --work-items-highlight-color: rgb(151, 5, 5);
+    --left-column-highlight-color: rgb(12, 20, 171);
     --work-items-inner-border: 1px;
     --work-items-inner-relative: -1px;
     --work-items-inner-color: white;
@@ -49,13 +49,13 @@ h2 {
     to { opacity: 1; left: 25px; }
 }
 
-@keyframes sections-fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes section-from-right {
+    from { left: 3000px; }
+    to { left: 0; }
 }
 
-@keyframes section-from-right {
-    from { left: 4000px; }
+@keyframes section-from-left {
+    from {left: -3000px; }
     to { left: 0; }
 }
 
@@ -90,7 +90,7 @@ header h1 img {
     top: -15px;
     left: -500px;
     border: 1px solid black;
-    animation-delay: 1s;
+    animation-delay: s;
     animation-name: header-image;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
@@ -138,6 +138,7 @@ nav menu li {
 section,
 footer {
     display: flex;
+    position: relative;
     justify-content: stretch;
     align-items: flex-start;
     margin: 0 auto;
@@ -151,11 +152,11 @@ footer h2 {
     background-color: var(--left-column-highlight-color);
     color: white;
     position: relative;
+    left: -500px;
     top: 10px;
-    opacity: 0;
-    animation: sections-fadein;
-    animation-duration: 2s;
-    animation-delay: 3.5s;
+    animation: section-from-left;
+    animation-duration: 3s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
 }
 
@@ -180,7 +181,7 @@ footer > ul {
     left: 4000px;
     animation: section-from-right;
     animation-delay: 1s;
-    animation-duration: 2.5s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
 }
 
