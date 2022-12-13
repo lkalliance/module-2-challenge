@@ -103,6 +103,10 @@ header {
     z-index: 10;
 }
 
+footer {
+    padding-bottom: 50px;
+}
+
 header h1 {
     color: var(--header-text-color);
     padding-right: 20px;
@@ -364,3 +368,170 @@ ul#work-items p strong {
 
 
 /* MEDIA QUERIES */
+
+@media screen and ( max-width: 950px ) {
+
+    header h1,
+    header h1 img,
+    header nav {
+        animation: none;
+        left: 0;
+    }
+
+    header h1 img {
+        left: 25px;
+    }
+
+    header nav li,
+    header nav li:hover,
+    footer li,
+    footer li:hover,
+    header nav li a,
+    header nav li:hover a,
+    footer li a,
+    footer li:hover a {
+        animation: none;
+    }
+
+    header nav li,
+    footer li {
+        padding: 5px 0;
+    }
+    
+    section,
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section h2,
+    footer h2 {
+        flex: 0 0 auto;
+        width: 80%;
+        text-align: center;
+        background-color: transparent;
+        color: var(--left-column-highlight-color);
+        animation: none;
+        left: 0;
+        border-bottom: 2px solid var(--left-column-highlight-color);
+        padding-top: 0;
+    }
+
+    footer h2 {
+        font-size: 175%;
+        margin-bottom: 0;
+    }
+
+    section p,
+    section ul,
+    footer ul {
+        animation: none;
+        left: 0;
+        border-left-width: 0px;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+
+    section#work ul,
+    footer ul
+    {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    section#about-me p {
+        border-left-width: 0px;
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    ul#work-items li {
+        opacity: 1;
+    }
+    
+    ul#work-items li:hover {
+        box-shadow: none;
+        border-color: var(--work-items-highlight-color);
+    }
+
+    ul#work-items li:hover p {
+        background-color: var(--work-items-highlight-color);
+    }
+    
+}
+
+@media screen and (max-width: 635px) {
+
+    * {
+        font-size: 15px;
+    }
+        
+    ul#work-items li {
+        width: 100%;
+        height: 175px;
+    }
+
+    ul#work-items li:first-of-type {
+        height: 175px;
+    }
+
+    header h1 img {
+        width: 80px;
+        height: 80px;
+        top: -20px;
+    }
+
+    header h1  {
+        padding-left: 120px;
+        margin-top: 15px;
+        text-align: left;
+        font-size: 200%;
+        line-height: 100%;
+    }
+
+    header {
+        height: 80px;
+        background: linear-gradient(0deg,var(--work-items-highlight-color) 50%,white 100%);
+
+    }
+
+    header nav {
+        top: -25px;
+    }
+
+    section h2 {
+        font-size: 150%;
+        padding-bottom: 8px;
+    }
+
+    section#about-me h2 {
+        margin-top: 0;
+    }
+
+    header nav menu {
+        flex-direction: column;
+        margin-right: 25px;
+    }
+
+    header nav menu li {
+        margin: 0;
+        padding: 0;
+        border-width: 0;
+        height: 17px;
+    }
+
+    header nav menu a::before {
+        font-family: 'Font Awesome 6 Free';
+        color: white;
+        font-weight: 900;
+        content: "\f101";
+        padding-right: 5px;
+    }
+
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 0;
+    }
+
+}
