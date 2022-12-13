@@ -59,6 +59,36 @@ h2 {
     to { left: 0; }
 }
 
+@keyframes hover-grow {
+    from { border-bottom-width: 2px; }
+    to { border-bottom-width: 31px; }
+}
+
+@keyframes hover-shrink {
+    from { border-bottom-width: 31px; }
+    to { border-bottom-width: 2px; }
+}
+
+@keyframes header-font-fade-in {
+    from { color: white; }
+    to { color: black; }
+}
+
+@keyframes header-font-fade-back {
+    from { color: black; }
+    to { color: white; }
+}
+
+@keyframes footer-font-fade-in {
+    from { color: var(--left-column-highlight-color); }
+    to { color: white; }
+}
+
+@keyframes footer-font-fade-back {
+    from { color: white; }
+    to { color: var(--left-column-highlight-color); }
+}
+
 
 /* HEADER STYLES */
 
@@ -100,15 +130,29 @@ header a,
 footer a {
     color: var(--left-column-highlight-color);
     text-decoration: none;
+    font-weight: normal;
 }
 
 header a {
     color: var(--header-text-color);
 }
 
+footer li a {
+    line-height: 48px;
+    animation: footer-font-fade-back;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+footer li:hover a {
+    animation: footer-font-fade-in;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
 nav {
     position: relative;
-    top: 12px;
+    top: 2px;
     animation: section-from-right;
     animation-duration: 2s;
 }
@@ -120,13 +164,37 @@ nav menu {
     justify-content: space-between;
 }
 
+nav menu a {
+    line-height: 45px;
+    animation: header-font-fade-back;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
 nav menu li,
 footer li {
-    font-weight: bold;
     font-size: 90%;
-    padding: 5px 0;
-    border-bottom: 4px solid var(--left-column-highlight-color);
+    font-stretch: expanded;
+    height: 44px;
+    padding: 5px 8px;
+    border-bottom: 2px solid var(--left-column-highlight-color);
     margin-right: 20px;
+    animation: hover-shrink;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+nav menu li:hover,
+footer li:hover {
+    animation: hover-grow;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+nav menu li:hover a {
+    animation: header-font-fade-in;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
 }
 
 nav menu li {
@@ -186,7 +254,7 @@ footer > ul {
 }
 
 footer ul {
-    padding-top: 22px;
+    padding-top: 16px;
     padding-bottom: 50px;
     justify-content: space-between;
     width: 100%;
