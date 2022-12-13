@@ -55,7 +55,7 @@ h2 {
 }
 
 @keyframes section-from-left {
-    from {left: -3000px; }
+    from {left: -2000px; }
     to { left: 0; }
 }
 
@@ -224,7 +224,7 @@ footer h2 {
     background-color: var(--left-column-highlight-color);
     color: white;
     position: relative;
-    left: -500px;
+    left: -2000px;
     top: 10px;
     animation: section-from-left;
     animation-duration: 3s;
@@ -369,7 +369,22 @@ ul#work-items p strong {
 
 /* MEDIA QUERIES */
 
-@media screen and ( max-width: 950px ) {
+@media screen and ( hover: none ) {
+
+    header nav li,
+    header nav li:hover,
+    footer li,
+    footer li:hover,
+    header nav li a,
+    header nav li:hover a,
+    footer li a,
+    footer li:hover a {
+        animation: none;
+    }
+
+}
+ 
+@media screen and ( max-width: 900px ) {
 
     header h1,
     header h1 img,
@@ -460,7 +475,7 @@ ul#work-items p strong {
     
 }
 
-@media screen and (max-width: 635px) {
+@media screen and (max-width: 600px) {
 
     * {
         font-size: 15px;
@@ -476,27 +491,46 @@ ul#work-items p strong {
     }
 
     header h1 img {
-        width: 80px;
-        height: 80px;
-        top: -20px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 75px;
+        height: 75px;
+        top: 0;
     }
 
     header h1  {
-        padding-left: 120px;
-        margin-top: 15px;
-        text-align: left;
+        position: static;
+        text-align: center;
+        padding: 0 30px;
         font-size: 200%;
-        line-height: 100%;
+        line-height: 55px;
+        margin: 0;
     }
 
     header {
-        height: 80px;
+        display: block;
+        position: relative;
+        height: 75px;
         background: linear-gradient(0deg,var(--work-items-highlight-color) 50%,white 100%);
-
+        margin-bottom: 35px;
     }
 
     header nav {
-        top: -25px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        position: absolute;
+        top: 80px;
+    }
+
+    header nav li {
+        margin: 0 10px;
+    }
+
+    nav menu a {
+        color: var(--work-items-highlight-color);
+        line-height: 100%;
     }
 
     section h2 {
@@ -509,29 +543,27 @@ ul#work-items p strong {
     }
 
     header nav menu {
-        flex-direction: column;
-        margin-right: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
     }
 
     header nav menu li {
-        margin: 0;
+        margin: 3px 10px;
         padding: 0;
         border-width: 0;
         height: 17px;
     }
 
-    header nav menu a::before {
-        font-family: 'Font Awesome 6 Free';
-        color: white;
-        font-weight: 900;
-        content: "\f101";
-        padding-right: 5px;
-    }
-
     footer ul {
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-around;
         padding-top: 0;
+    }
+
+    footer li {
+        margin: 0 10px;
     }
 
 }
