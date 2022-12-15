@@ -303,6 +303,18 @@ footer li:hover a {
 
 
 
+/* ----- ABOUT ME SPECIFIC STYLES ----- */
+
+section#about-me p {
+    width: 50%;
+}
+
+section#about-me p:nth-of-type(2) {
+    border-color: transparent;
+}
+
+
+
 /* ----- WORK-ITEM-SPECIFIC STYLES ----- */
 
 section#work ul {
@@ -410,7 +422,6 @@ section#work p strong {
     footer li:hover a {
         animation: none;
     }
-
 }
 
 @media screen and ( max-width: 900px ) {
@@ -488,13 +499,13 @@ section#work p strong {
         /* adjust list styling to account for headers
         going on top instead of to the left */
         width: 80%;
-        margin: 0 auto;
+        margin: 0 auto 18px;
     }
 
     section#work li:hover {
         /* remove hover effects on work items */
         box-shadow: none;
-        border-color: var(--header-background-color); */
+        border-color: var(--header-background-color);
     }
 
     section#work li:hover p {
