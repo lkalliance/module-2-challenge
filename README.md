@@ -8,7 +8,7 @@ I also wanted to build this page in such a way that the page itself demonstrates
 
 You can access this page at [this location](https://lkalliance.github.io/module-2-challenge/ "Lee Klusky's portfolio").
 
-![screenshot](./assets/images/site-screenshot-2.png)
+![screenshot](./assets/images/site-screenshot-3.png)
 
 ## Usage
 
