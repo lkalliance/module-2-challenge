@@ -1,14 +1,14 @@
-/* GLOBAL STYLES */
+
+
+/* ----- GLOBAL STYLES ----- */
 
 :root {
-    --header-highlight-color: #0a5829;
     --header-text-color: white;
-    --work-items-highlight-color: rgb(151, 5, 5);
+    --header-background-color: rgb(151, 5, 5);
     --left-column-highlight-color: rgb(12, 20, 171);
+    --work-items-inner-border-color: white;
     --work-items-inner-border: 1px;
     --work-items-inner-relative: -1px;
-    --work-items-inner-color: white;
-    --header-background-color: red;
     --left-flex: 0 0 175px;
     --work-1-img: url(../images/work-1.png);
     --work-2-img: url(../images/work-2.png);
@@ -37,7 +37,9 @@ h2 {
 }
 
 
-/* ANIMATION KEYFRAMES */
+
+
+/* ----- ANIMATION KEYFRAMES ----- */
 
 @keyframes header-name {
     from { opacity: 0; top: -100px; }
@@ -60,13 +62,13 @@ h2 {
 }
 
 @keyframes hover-grow {
-    from { border-bottom-width: 2px; }
-    to { border-bottom-width: 31px; }
+    from { border-bottom-width: 2px; padding: 5px 0; margin: 0 28px 0 8px; }
+    to { border-bottom-width: 31px; padding: 5px 8px; margin: 0 20px 0 0; }
 }
 
 @keyframes hover-shrink {
-    from { border-bottom-width: 31px; }
-    to { border-bottom-width: 2px; }
+    from { border-bottom-width: 31px; padding: 5px 8px; margin: 0 20px 0 0; }
+    to { border-bottom-width: 2px; padding: 5px 0; margin: 0 28px 0 8px; }
 }
 
 @keyframes header-font-fade-in {
@@ -90,124 +92,44 @@ h2 {
 }
 
 
-/* HEADER STYLES */
 
-header {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding-top: 15px;
-    /* background-color: var(--header-background-color); */
-    background: linear-gradient(0deg,var(--work-items-highlight-color) 40%,white 100%);
-    width: 100%;
-    height: 100px;
-    z-index: 10;
-}
+/* ----- SHARED STYLE RULES ----- */
 
-footer {
-    padding-bottom: 50px;
-}
-
-header h1 {
-    color: var(--header-text-color);
-    padding-right: 20px;
-    padding-left: 150px;
-    position: relative;
-    animation-name: header-name;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-}
-
-header h1 img {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    top: -15px;
-    left: -500px;
-    border: 1px solid black;
-    animation-delay: s;
-    animation-name: header-image;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-}
+/* HEADER AND FOOTER COMMON RULES */
 
 header a,
 footer a {
-    color: var(--left-column-highlight-color);
     text-decoration: none;
     font-weight: normal;
 }
 
-header a {
-    color: var(--header-text-color);
-}
-
-footer li a {
-    line-height: 48px;
-    animation: footer-font-fade-back;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-}
-
-footer li:hover a {
-    animation: footer-font-fade-in;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-}
-
-nav {
-    position: relative;
-    top: 2px;
-    animation: section-from-right;
-    animation-duration: 2s;
-}
-
-nav menu {
-    list-style-type: none;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav menu a {
-    line-height: 45px;
-    animation: header-font-fade-back;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-}
-
-nav menu li,
+header li,
 footer li {
+    /* containers of header menu links and footer contact links */
+    height: 44px;
+    padding: 5px 0;
+    margin: 0 28px 0 8px;
+    margin-right: 20px;
     font-size: 90%;
     font-stretch: expanded;
-    height: 44px;
-    padding: 5px 8px;
     border-bottom: 2px solid var(--left-column-highlight-color);
-    margin-right: 20px;
+
+    /* animation to shrink link underline back to normal after hover */
     animation: hover-shrink;
     animation-duration: .3s;
     animation-fill-mode: forwards;
 }
 
-nav menu li:hover,
+header li:hover,
 footer li:hover {
+    /* animation to grow link underline to create background on hover */
     animation: hover-grow;
     animation-duration: .3s;
     animation-fill-mode: forwards;
 }
 
-nav menu li:hover a {
-    animation: header-font-fade-in;
-    animation-duration: .3s;
-    animation-fill-mode: forwards;
-}
 
-nav menu li {
-    border-bottom-color: var(--header-text-color);
-}
-
-/* SECTION STYLES */
+/* SECTION AND FOOTER COMMON RULES */
 
 section,
 footer {
@@ -221,42 +143,138 @@ footer {
 
 section h2,
 footer h2 {
-    padding: 15px;
     flex: var(--left-flex);
-    background-color: var(--left-column-highlight-color);
-    color: white;
     position: relative;
     left: -2000px;
     top: 10px;
+    padding: 15px;
+    background-color: var(--left-column-highlight-color);
+    color: white;
+
+    /* animation to bring headers in from off-screen */
     animation: section-from-left;
     animation-duration: 3s;
-    animation-delay: 1s;
     animation-fill-mode: forwards;
-}
-
-footer h2 {
-    top: 5px;
-    font-size: 120%;
 }
 
 section p,
 section ul,
 footer ul {
+    display: flex;
     position: relative;
-    border-left: 4px solid var(--left-column-highlight-color);
-    padding-left: 18px;
     margin: 0;
+    padding-left: 18px;
     padding-bottom: 60px;
+    list-style-type: none;
+    border-left: 4px solid var(--left-column-highlight-color);
  }
 
-section > ul,
+section ul,
 section > p,
-footer > ul {
+footer ul {
     left: 4000px;
+
+    /* animation to bring content in from off-screen */
     animation: section-from-right;
-    animation-delay: 1s;
     animation-duration: 3s;
     animation-fill-mode: forwards;
+}
+
+
+
+/* ---- HEADER-SPECIFIC STYLES ----- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    background: linear-gradient(0deg, var(--header-background-color) 40%, white 100%);
+    z-index: 10;
+}
+
+header h1 {
+    /* name on page */
+    position: relative;
+    color: var(--header-text-color);
+    padding-right: 20px;
+    padding-left: 150px;
+
+    /* animation to bring name in from off-screen */
+    animation-name: header-name;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+header h1 img {
+    /* main image of page */
+    position: absolute;
+    top: -15px;
+    left: -500px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+
+    /* animation to bring photo in from off-screen */
+    animation-delay: s;
+    animation-name: header-image;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+header a {
+    /* menu links for page sections */
+    color: var(--header-text-color);
+    line-height: 45px;
+
+    /* animation to fade color back to normal after hover */
+    animation: header-font-fade-back;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+header li:hover a {
+    /* animation to fade header link color to be visible over white background */
+    animation: header-font-fade-in;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+nav {
+    position: relative;
+    top: 2px;
+
+    /* animation to bring menu in from off-screen */
+    animation: section-from-right;
+    animation-duration: 2s;
+}
+
+nav menu {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 100%;
+}
+
+nav menu li {
+    border-bottom-color: var(--header-text-color);
+}
+
+
+
+/* ----- FOOTER-SPECIFIC STYLES ----- */
+
+footer {
+    padding-bottom: 50px;
+}
+
+footer h2 {
+    /* override rules for smaller footer h2 */
+    top: 5px;
+    font-size: 120%;
 }
 
 footer ul {
@@ -266,18 +284,38 @@ footer ul {
     width: 100%;
 }
 
-section ul,
-footer ul {
-    position: relative;
-    list-style-type: none;
-    display: flex;
- }
+footer li a {
+    line-height: 48px;
+    color: var(--left-column-highlight-color);
 
-footer a {
-    text-decoration: none;
+    /* animation to fade link color back to normal after hover */
+    animation: footer-font-fade-back;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
 }
 
-/* WORK LINK STYLES */
+footer li:hover a {
+    /*animation to fade link color to white on hover */
+    animation: footer-font-fade-in;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+
+
+/* ----- ABOUT ME SPECIFIC STYLES ----- */
+
+section#about-me p {
+    width: 50%;
+}
+
+section#about-me p:nth-of-type(2) {
+    border-color: transparent;
+}
+
+
+
+/* ----- WORK-ITEM-SPECIFIC STYLES ----- */
 
 section#work ul {
     flex-wrap: wrap;
@@ -292,77 +330,80 @@ section#work a {
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    border: var(--work-items-inner-border) solid var(--work-items-inner-color);
+    border: var(--work-items-inner-border) solid var(--work-items-inner-border-color);
     text-decoration: none;
+    background-size: 200%;
 }
 
-ul#work-items li {
+section#work li {
     width: 49%;
     height: 150px;
     margin: 7px 0;
-    border: 7px solid var(--work-items-highlight-color);
+    border: 7px solid var(--header-background-color);
 }
 
-ul#work-items li:hover {
+section#work li:hover {
     box-shadow: 0 0 10px 2px var(--left-column-highlight-color);
     border-color: var(--left-column-highlight-color);
 }
 
-ul#work-items li:hover p {
+section#work li:hover p {
     background-color: var(--left-column-highlight-color);
 }
 
-ul#work-items li:first-of-type {
+section#work li:first-of-type {
     width: 100%;
     height: 250px;
+    background-size: 100%;
 }
 
-ul#work-items h3 {
+section#work h3 {
     margin-bottom: 0;
 }
 
-ul#work-items p {
-    background-color: var(--work-items-highlight-color);
-    border: var(--work-items-inner-border) solid var(--work-items-inner-color);
-    border-left: none;
-    position: relative;
-    left: var(--work-items-inner-relative);
+section#work p {
+    display: block;
     top: -15px;
+    left: var(--work-items-inner-relative);
+    padding: 8px 15px 8px 12px;
+    border: var(--work-items-inner-border) solid var(--work-items-inner-border-color);
+    border-left: none;
+    background-color: var(--header-background-color);
     color: white;
     font-size: 80%;
-    padding: 8px 15px 8px 12px;
 }
 
-ul#work-items p strong {
+section#work p strong {
     display: block;
     font-size: 120%;
 }
 
+
+/* Declare specific background-images for each specific item */
+
 #work-items a#work-1 {
     background-image: var(--work-1-img);
-    background-size: 100%;
-    background-position: 0 -12px;
 }
 
 #work-items a#work-2 {
     background-image: var(--work-2-img);
-    background-size: 200%;
 }
 
 #work-items a#work-3 {
     background-image: var(--work-3-img);
-    background-size: 200%;
+
 }
 
 #work-items a#work-4 {
     background-image: var(--work-4-img);
-    background-size: 200%;
+
 }
 
 #work-items a#work-5 {
     background-image: var(--work-5-img);
-    background-size: 200%;
 }
+
+
 
 
 
@@ -370,7 +411,7 @@ ul#work-items p strong {
 /* MEDIA QUERIES */
 
 @media screen and ( hover: none ) {
-
+    /* turn off all link animations if on a touch screen */
     header nav li,
     header nav li:hover,
     footer li,
@@ -381,19 +422,22 @@ ul#work-items p strong {
     footer li:hover a {
         animation: none;
     }
-
 }
 
 @media screen and ( max-width: 900px ) {
+    /* if on a tablet-sized screen */
 
     header h1,
     header h1 img,
     header nav {
+        /* turn off "screen assemble" navigations
+        and place elements in final on-screen positions */
         animation: none;
         left: 0;
     }
 
     header h1 img {
+        /* override position value for just this element */
         left: 25px;
     }
 
@@ -405,34 +449,34 @@ ul#work-items p strong {
     header nav li:hover a,
     footer li a,
     footer li:hover a {
+        /* turn off link hover animations */
         animation: none;
     }
 
-    header nav li,
-    footer li {
-        padding: 5px 0;
-    }
-    
     section,
     footer {
+        /* place headers on top of content instead of to the right */
         flex-direction: column;
         align-items: center;
     }
 
     section h2,
     footer h2 {
+        /* turn off "screen assemble" animation and
+        undo special positioning and styling of headers from large layout */
         flex: 0 0 auto;
-        width: 80%;
         text-align: center;
+        left: 0;
+        width: 80%;
+        padding-top: 0;
         background-color: transparent;
         color: var(--left-column-highlight-color);
-        animation: none;
-        left: 0;
         border-bottom: 2px solid var(--left-column-highlight-color);
-        padding-top: 0;
+        animation: none;
     }
 
     footer h2 {
+        /* adjust footer headline slightly */
         font-size: 175%;
         margin-bottom: 0;
     }
@@ -440,130 +484,131 @@ ul#work-items p strong {
     section p,
     section ul,
     footer ul {
-        animation: none;
+        /* turn off "screen assemble" animation and
+        remove formatting specific to the large layout */
         left: 0;
-        border-left-width: 0px;
         padding-left: 0;
         padding-bottom: 0;
-    }
-
-    section#work ul,
-    footer ul
-    {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    section#about-me p {
         border-left-width: 0px;
-        margin: 0 auto;
+        animation: none;
+    }
+
+    section#about-me p,
+    section#work ul,
+    footer ul {
+        /* adjust list styling to account for headers
+        going on top instead of to the left */
         width: 80%;
+        margin: 0 auto 18px;
     }
 
-    ul#work-items li {
-        opacity: 1;
-    }
-    
-    ul#work-items li:hover {
+    section#work li:hover {
+        /* remove hover effects on work items */
         box-shadow: none;
-        border-color: var(--work-items-highlight-color);
+        border-color: var(--header-background-color);
     }
 
-    ul#work-items li:hover p {
-        background-color: var(--work-items-highlight-color);
+    section#work li:hover p {
+        /* remove hover effects on work items */
+        background-color: var(--header-background-color);
     }
-    
 }
 
 @media screen and (max-width: 600px) {
+    /* if on a small tablet or phone-sized screen */
 
     * {
         font-size: 15px;
     }
         
-    ul#work-items li {
-        width: 100%;
-        height: 175px;
+    header {
+        /* resize the header and remove flex, and adjust gradient
+        to make heading more visible */
+        display: block;
+        position: relative;
+        height: 75px;
+        margin-bottom: 35px;
+        background: linear-gradient(0deg,var(--header-background-color) 50%,white 100%);
     }
 
-    ul#work-items li:first-of-type {
-        height: 175px;
+    header h1  {
+        /* center the heading and adjust sizing and positioning */
+        position: static;
+        text-align: center;
+        margin: 0;
+        padding: 0 30px;
+        font-size: 200%;
+        line-height: 55px;
     }
 
     header h1 img {
+        /* resize header image and place in specific location */
         position: absolute;
         left: 0;
         top: 0;
         width: 75px;
         height: 75px;
-        top: 0;
     }
 
-    header h1  {
-        position: static;
-        text-align: center;
-        padding: 0 30px;
-        font-size: 200%;
-        line-height: 55px;
-        margin: 0;
-    }
-
-    header {
-        display: block;
-        position: relative;
-        height: 75px;
-        background: linear-gradient(0deg,var(--work-items-highlight-color) 50%,white 100%);
-        margin-bottom: 35px;
-    }
-
-    header nav {
-        display: flex;
+    nav {
+        /* place nav below the main heading */
+        padding-top: 8px;
         width: 100%;
-        justify-content: center;
-        position: absolute;
-        top: 80px;
     }
 
-    header nav li {
-        margin: 0 10px;
-    }
-
-    nav menu a {
-        color: var(--work-items-highlight-color);
-        line-height: 100%;
-    }
-
-    section h2 {
-        font-size: 150%;
-        padding-bottom: 8px;
-    }
-
-    section#about-me h2 {
-        margin-top: 0;
-    }
-
-    header nav menu {
+    nav menu {
+        /* change flex properties of main navigation */
         flex-wrap: wrap;
         justify-content: center;
         margin: 0;
         padding: 0;
     }
 
-    header nav menu li {
-        margin: 3px 10px;
+    nav li {
+        /* adjust sizing and styling of menu containers */
+        margin: 0 10px;
         padding: 0;
         border-width: 0;
         height: 17px;
     }
 
+    nav a {
+        /* adjust link color to visible on a white background */
+        color: var(--header-background-color);
+        line-height: 100%;
+    }
+
+    section#work li {
+        /* make work items one column instead of two */
+        width: 100%;
+        height: 175px;
+    }
+
+    section#work li:first-of-type {
+        /* normalize first work item size */
+        height: 175px;
+    }
+    
+    section h2 {
+        /* adjust appearance */
+        font-size: 150%;
+        padding-bottom: 8px;
+    }
+
+    section#about-me h2 {
+        /* adjust appearance */
+        margin-top: 0;
+    }
+
     footer ul {
+        /* adjust flex properties and arrangement of footer menu */
         flex-wrap: wrap;
         justify-content: space-around;
         padding-top: 0;
     }
 
     footer li {
+        /* adjust alignment of footer menu items */
         margin: 0 10px;
     }
-
 }
