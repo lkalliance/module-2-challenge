@@ -514,7 +514,7 @@ section#work p strong {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     /* if on a small tablet or phone-sized screen */
 
     * {
