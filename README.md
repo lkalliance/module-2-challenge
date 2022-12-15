@@ -6,6 +6,10 @@ I wanted to create a useful web page for potential employers to see me and to ge
 
 I also wanted to build this page in such a way that the page itself demonstrates my skills as a front end coder. At the moment, the skills I used are limited to HTML and CSS...but in the near future it will include JavaScript and other web technologies.
 
+You can access this page at [this location](https://lkalliance.github.io/module-2-challenge/ "Lee Klusky's portfolio").
+
+![screenshot](./assets/images/site-screenshot-2.png)
+
 ## Usage
 
 This page, at the moment, works like any other static page on the World Wide Web. The menu at the top will scroll the user to each of the labeled sections. Clicking on any of the work samples I've listed will launch a new browser tab or window, and render that work on its own page. The "Contact Me" links at the bottom do not all work at this time. The email link, GitHub link and LinkedIn link all do in fact work as they ought; the telephone number link and the résumé link do not yet have destinations...but they will soon!
