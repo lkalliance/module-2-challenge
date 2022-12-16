@@ -157,7 +157,9 @@ footer h2 {
     animation-fill-mode: forwards;
 }
 
-.main {
+section p,
+section ul,
+footer ul {
     display: flex;
     position: relative;
     margin: 0;
@@ -479,7 +481,9 @@ section#work p strong {
         margin-bottom: 0;
     }
 
-    .main {
+    section p,
+    section ul,
+    footer ul {
         /* turn off "screen assemble" animation and
         remove formatting specific to the large layout */
         left: 0;
