@@ -3,13 +3,18 @@
 /* ----- GLOBAL STYLES ----- */
 
 :root {
+    /* Color variables */
     --header-text-color: white;
     --header-background-color: rgb(151, 5, 5);
     --left-column-highlight-color: rgb(12, 20, 171);
+
+    /* Nit-picky styling variables */
     --work-items-inner-border-color: white;
     --work-items-inner-border: 1px;
     --work-items-inner-relative: -1px;
     --left-flex: 0 0 175px;
+
+    /* Work item background images */
     --work-1-img: url(../images/work-1.png);
     --work-2-img: url(../images/work-2.png);
     --work-3-img: url(../images/map.png);
@@ -35,7 +40,6 @@ h2 {
     text-align: right;
     line-height: 1;
 }
-
 
 
 
@@ -187,7 +191,6 @@ footer ul {
 header {
     display: flex;
     justify-content: space-between;
-    position: relative;
     width: 100%;
     height: 100px;
     margin-bottom: 20px;
@@ -305,7 +308,7 @@ footer li:hover a {
 
 /* ----- ABOUT ME SPECIFIC STYLES ----- */
 
-section#about-me p {
+section#about-mesection#about-me p {
     width: 50%;
 }
 
@@ -381,25 +384,25 @@ section#work p strong {
 
 /* Declare specific background-images for each specific item */
 
-#work-items a#work-1 {
+#work-items li#work-1 a {
     background-image: var(--work-1-img);
 }
 
-#work-items a#work-2 {
+#work-items li#work-2 a {
     background-image: var(--work-2-img);
 }
 
-#work-items a#work-3 {
+#work-items li#work-3 a {
     background-image: var(--work-3-img);
 
 }
 
-#work-items a#work-4 {
+#work-items li#work-4 a {
     background-image: var(--work-4-img);
 
 }
 
-#work-items a#work-5 {
+#work-items li#work-5 a {
     background-image: var(--work-5-img);
 }
 
