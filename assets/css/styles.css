@@ -505,6 +505,11 @@ section#work p strong {
         margin: 0 auto 18px;
     }
 
+    section#about-me h2 {
+        /* adjust spacing for this header specifically */
+        top: 0;
+    }
+
     section#work li:hover {
         /* remove hover effects on work items */
         box-shadow: none;
