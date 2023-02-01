@@ -20,7 +20,7 @@
     --work-3-img: url(../images/map.png);
     --work-4-img: url(../images/dragging.png);
     --work-5-img: url(../images/Horiseon.png);
-    --work-6-img: url();
+    --work-6-img: url(../images/moonfish-screen-shot.png);
 }
 
 * {
@@ -338,6 +338,10 @@ section#work a {
     background-size: 200%;
 }
 
+section#work #work-6 a {
+    background-size: 100%;
+}
+
 section#work li {
     width: 49%;
     height: 150px;
@@ -404,6 +408,10 @@ section#work p strong {
 
 #work-items li#work-5 a {
     background-image: var(--work-5-img);
+}
+
+#work-items li#work-6 a {
+    background-image: var(--work-6-img);
 }
 
 
